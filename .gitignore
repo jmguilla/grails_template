@@ -1,3 +1,4 @@
+grails-app/conf/priv/**
 target-eclipse
 target
 .classpath

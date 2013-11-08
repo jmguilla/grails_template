@@ -1,13 +1,23 @@
 
+
+
+
 class BootStrap {
-	
-	def authenticationService
-	
-    def init = { servletContext ->
-		authenticationService.events['onSignup'] = { params -> 
-			println "overrided behavior for onSignup"
-		}
+
+  def authenticationService
+  def mailService
+
+  def init = { servletContext ->
+    authenticationService.events['onSignup'] = { params ->
+      mailService.sendMail {
+        to params.user.email
+        from 'guillauj@gmail.com'
+        subject 'new inscription'
+        body 'the body'
+      }
     }
-    def destroy = {
-    }
+    authenticationService.events['onConfirmAccount'] = { user -> true}
+  }
+  def destroy = {
+  }
 }
