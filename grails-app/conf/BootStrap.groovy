@@ -1,13 +1,14 @@
 
-
-
-
 class BootStrap {
 
   def authenticationService
   def mailService
+  def dataWarmupService
 
   def init = { servletContext ->
+
+    new com.jmguilla.ExpandoLoader().load()
+
     authenticationService.events['onSignup'] = { params ->
       mailService.sendMail {
         to params.user.email
@@ -17,6 +18,8 @@ class BootStrap {
       }
     }
     authenticationService.events['onConfirmAccount'] = { user -> true}
+
+    dataWarmupService.dev()
   }
   def destroy = {
   }
