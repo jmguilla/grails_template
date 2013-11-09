@@ -1,3 +1,5 @@
+import com.jmguilla.User
+
 
 class BootStrap {
 
@@ -9,6 +11,7 @@ class BootStrap {
 
     new com.jmguilla.ExpandoLoader().load()
 
+    authenticationService.userDomainClass = User 
     authenticationService.events['onSignup'] = { params ->
       mailService.sendMail {
         to params.user.email

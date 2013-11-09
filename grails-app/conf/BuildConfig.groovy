@@ -50,6 +50,8 @@ grails.project.dependency.resolution = {
   dependencies {
     // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
     // runtime 'mysql:mysql-connector-java:5.1.24'
+  compile 'org.springframework.social:spring-social-core:1.0.1.RELEASE', transitive: false
+  compile 'org.springframework.social:spring-social-facebook:1.0.1.RELEASE', transitive: false
   }
 
   plugins {
@@ -62,6 +64,7 @@ grails.project.dependency.resolution = {
     //added afterwards for the application
     compile ":authentication:2.0.1"
     compile ":mail:1.0.1"
+    compile ":spring-security-facebook:0.15"
 
     // plugins needed at runtime but not for compilation
     runtime ":hibernate:3.6.10.2" // or ":hibernate4:4.1.11.2"

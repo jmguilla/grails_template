@@ -3,7 +3,8 @@
 // in the classpath in ConfigSlurper format
 
 grails.config.locations = [
-  "classpath:priv/MailConfig.properties"
+  "classpath:priv/MailConfig.properties",
+  "classpath:priv/FBAuthConfig.properties"
 ]
 //                             "classpath:${appName}-config.groovy",
 //                             "file:${userHome}/.grails/${appName}-config.properties",
@@ -147,3 +148,10 @@ grails{
       "mail.smtp.socketFactory.fallback":"false"]
   }
 }
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.jmguilla.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.jmguilla.UserRole'
+grails.plugins.springsecurity.authority.className = 'com.jmguilla.Role'
+
+
+grails.plugins.springsecurity.facebook.domain.classname='FacebookUser'
