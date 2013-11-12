@@ -83,6 +83,12 @@
 	<body>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
+			<sec:ifNotGranted roles="ROLE_USER">
+			  <facebookAuth:connect permissions="email,user_photos" />
+			</sec:ifNotGranted>
+			<sec:ifAllGranted roles="ROLE_USER">
+			  Welcome <sec:username/>! (<g:link uri="/j_spring_security_logout">Logout</g:link>)
+			</sec:ifAllGranted>
 			<h1>Application Status</h1>
 			<ul>
 				<li>App version: <g:meta name="app.version"/></li>

@@ -92,7 +92,12 @@
 		<g:if test='${flash.message}'>
 			<div class='login_message'>${flash.message}</div>
 		</g:if>
-
+		<sec:ifNotGranted roles="ROLE_USER">
+		  <facebookAuth:connect permissions="email,user_photos" />
+		</sec:ifNotGranted>
+		<sec:ifAllGranted roles="ROLE_USER">
+		  Welcome <sec:username/>! (<g:link uri="/j_spring_security_logout">Logout</g:link>)
+		</sec:ifAllGranted>
 		<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
 			<p>
 				<label for='username'><g:message code="springSecurity.login.username.label"/>:</label>

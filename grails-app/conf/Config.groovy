@@ -4,7 +4,8 @@
 
 grails.config.locations = [
   "classpath:priv/MailConfig.properties",
-  "classpath:priv/FBAuthConfig.properties"
+  "classpath:priv/FBAuthConfig.properties",
+  "classpath:facebook4j.properties"
 ]
 //                             "classpath:${appName}-config.groovy",
 //                             "file:${userHome}/.grails/${appName}-config.properties",
@@ -153,5 +154,4 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.jmguilla.Use
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.jmguilla.UserRole'
 grails.plugins.springsecurity.authority.className = 'com.jmguilla.Role'
 
-
-grails.plugins.springsecurity.facebook.domain.classname='FacebookUser'
+grails.plugins.springsecurity.facebook.domain.classname='com.jmguilla.User'
