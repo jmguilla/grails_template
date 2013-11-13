@@ -1,7 +1,6 @@
 package com.jmguilla
 
 import com.jmguilla.oauth.FacebookUser
-import com.sun.org.apache.xpath.internal.operations.String
 
 class User {
 
@@ -33,6 +32,7 @@ class User {
     address(nullable: true)
     username(nullable: true)
     password(nullable: false)
+    fbUser(nullable: true)
   }
 
   static mapping = { password column: 'password' }

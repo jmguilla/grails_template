@@ -31,7 +31,7 @@ class FacebookAuthService {
     user.lastName = fbOAuth.lastName
     user.password = fbOAuth.username.encodeAsSHA1()
     user.email = fbOAuth.email
-    user.oauths.add(fbUser)
+    user.setFbUser(fbUser)
     user.save(flush: true, failOnError: true)
   }
 
