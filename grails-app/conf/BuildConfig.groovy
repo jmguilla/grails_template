@@ -63,7 +63,6 @@ grails.project.dependency.resolution = {
     compile ":scaffolding:2.0.1"
     compile ':cache:1.1.1'
     //added afterwards for the application
-    compile ":authentication:2.0.1"
     compile ":mail:1.0.1"
     compile ":spring-security-facebook:0.15"
 
