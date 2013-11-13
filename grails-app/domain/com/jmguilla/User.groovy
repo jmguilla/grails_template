@@ -1,9 +1,7 @@
 package com.jmguilla
 
-import java.util.Date;
-
-import com.grailsrocks.authentication.AuthenticationUser;
-import com.grailsrocks.authentication.AuthenticationService
+import com.jmguilla.oauth.FacebookUser
+import com.sun.org.apache.xpath.internal.operations.String
 
 class User {
 
@@ -11,25 +9,21 @@ class User {
   transient authenticationService
 
   String sha1
+  String email
   String firstName
   String lastName
   String phoneNumber
   Address address
   //below required by authentication pluging
-  String login
-  String email
-  String password
-  int status = AuthenticationService.STATUS_NEW
   //below, in addition to password, required by spring security plugin
+  String password
   String username
   boolean enabled = true
   boolean accountExpired = false
   boolean accountLocked = false
   boolean passwordExpired = false
-  //below required by facebook authentication/social plugin
-  long uid
-  String accessToken
-  Date accessTokenExpires
+  //below oauth entities
+  FacebookUser fbUser
 
   static constraints = {
     firstName(nullable: true, size: 1..64)
@@ -38,7 +32,6 @@ class User {
     sha1(nullable: true, blank: false, unique: true)
     address(nullable: true)
     username(nullable: true)
-    uid(nullable:true, unique: true)
     password(nullable: false)
   }
 
@@ -59,6 +52,6 @@ class User {
   }
 
   protected void encodePassword() {
-//    password = springSecurityService.encodePassword(password)
+    //    password = springSecurityService.encodePassword(password)
   }
 }

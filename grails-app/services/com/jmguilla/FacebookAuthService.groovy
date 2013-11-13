@@ -3,6 +3,7 @@ package com.jmguilla
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.GrantedAuthorityImpl
 
+import com.jmguilla.oauth.FacebookUser
 import com.the6hours.grails.springsecurity.facebook.FacebookAuthToken
 
 import facebook4j.Facebook
@@ -12,26 +13,29 @@ import grails.transaction.Transactional
 
 @Transactional
 class FacebookAuthService {
-  
+
   def authenticationService
-  
+
   def  Collection<GrantedAuthority> getRoles(User user){
     user.getAuthorities().collect { new GrantedAuthorityImpl(it.authority) } as Set
   }
 
-  def void onCreate(User user, FacebookAuthToken token) {
+  //TODO instead of systematically create a new user, try to find him if he already exists
+  def void createAppUser(FacebookUser fbUser, FacebookAuthToken token) {
     Facebook facebook = new FacebookFactory().getInstance();
     facebook.setOAuthAccessToken(new AccessToken(token.accessToken.accessToken, null));
-    def fbUser = facebook.getMe()
-    user.username = fbUser.username
-    user.login = fbUser.username
-    user.firstName = fbUser.firstName
-    user.lastName = fbUser.lastName
-    user.password = user.uid.encodeAsSHA1()
-    user.email = fbUser.email
+    def fbOAuth = facebook.getMe()
+    User user = new User()
+    user.username = fbOAuth.username
+    user.firstName = fbOAuth.firstName
+    user.lastName = fbOAuth.lastName
+    user.password = fbOAuth.username.encodeAsSHA1()
+    user.email = fbOAuth.email
+    user.oauths.add(fbUser)
+    user.save(flush: true, failOnError: true)
   }
-  
-//  void afterCreate(User user, FacebookAuthToken token){
-//    authenticationService.login(user.login, user.password)
-//  }
+
+  void afterCreate(User user, FacebookAuthToken token){
+    //does nothing
+  }
 }
