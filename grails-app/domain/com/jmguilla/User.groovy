@@ -13,7 +13,7 @@ class User {
   String lastName
   String phoneNumber
   Address address
-  //below required by authentication pluging
+  //below required by authentication plugin
   //below, in addition to password, required by spring security plugin
   String password
   String username
