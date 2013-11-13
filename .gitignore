@@ -1,3 +1,4 @@
+facebook4j.properties
 mem.*
 grails-app/conf/priv/**
 target-eclipse
