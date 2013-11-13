@@ -7,8 +7,9 @@ class DataWarmupService {
 
   def dev() {
     if(Role.count == 0) {
-      new Role(authority: "ROLE_USER")
-      new Role(authority: "ROLE_ADMIN")
+      new Role(authority: "ROLE_USER").save(flush: true, failOnError: true)
+      new Role(authority: "ROLE_ADMIN").save(flush: true, failOnError: true)
+      new Role(authority: "ROLE_FACEBOOK").save(flush: true, failOnError: true)
     }
     //    def user = null
     //    if(!(user = new User(username:'jmguilla', login:'jmguilla', password:'jmguilla'.encodeAsSHA1(), email:'guillauj@gmail.com', status:AuthenticationService.STATUS_VALID, firstName: 'Jean-Michel', lastName: 'Guillaume', phoneNumber: '+33000000000', sha1: Utils.shortId())).save(flush: true, failOnErro: true)){

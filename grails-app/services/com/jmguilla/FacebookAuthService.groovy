@@ -21,6 +21,7 @@ class FacebookAuthService {
   }
 
   //TODO instead of systematically create a new user, try to find him if he already exists
+  //TODO create a default password and email it
   def User createAppUser(FacebookUser fbUser, FacebookAuthToken token) {
     Facebook facebook = new FacebookFactory().getInstance();
     facebook.setOAuthAccessToken(new AccessToken(token.accessToken.accessToken, null));
