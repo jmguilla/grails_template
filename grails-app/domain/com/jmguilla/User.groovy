@@ -22,7 +22,7 @@ class User {
   boolean accountLocked = false
   boolean passwordExpired = false
   //below oauth entities
-  FacebookUser fbUser
+  static hasOne = [fbUser:FacebookUser]
 
   static constraints = {
     firstName(nullable: true, size: 1..64)
@@ -32,7 +32,7 @@ class User {
     address(nullable: true)
     username(nullable: true)
     password(nullable: false)
-    fbUser(nullable: true)
+    fbUser(nullable: true, unique: true)
   }
 
   static mapping = { password column: 'password' }

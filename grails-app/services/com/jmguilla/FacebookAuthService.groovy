@@ -21,7 +21,7 @@ class FacebookAuthService {
   }
 
   //TODO instead of systematically create a new user, try to find him if he already exists
-  def void createAppUser(FacebookUser fbUser, FacebookAuthToken token) {
+  def User createAppUser(FacebookUser fbUser, FacebookAuthToken token) {
     Facebook facebook = new FacebookFactory().getInstance();
     facebook.setOAuthAccessToken(new AccessToken(token.accessToken.accessToken, null));
     def fbOAuth = facebook.getMe()
@@ -31,11 +31,6 @@ class FacebookAuthService {
     user.lastName = fbOAuth.lastName
     user.password = fbOAuth.username.encodeAsSHA1()
     user.email = fbOAuth.email
-    user.setFbUser(fbUser)
     user.save(flush: true, failOnError: true)
-  }
-
-  void afterCreate(User user, FacebookAuthToken token){
-    //does nothing
   }
 }
