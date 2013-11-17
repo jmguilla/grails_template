@@ -66,6 +66,7 @@ grails.project.dependency.resolution = {
     compile ":mail:1.0.1"
     compile ":spring-security-facebook:0.15"
     compile ":simple-captcha:0.9.4"
+    compile ":twitter-bootstrap:3.0.2"
 
     // plugins needed at runtime but not for compilation
     runtime ":hibernate:3.6.10.2" // or ":hibernate4:4.1.11.2"
@@ -76,5 +77,8 @@ grails.project.dependency.resolution = {
     //runtime ":zipped-resources:1.0.1"
     //runtime ":cached-resources:1.1"
     //runtime ":yui-minify-resources:0.1.5"
+
+    //added afterwards for the application
+    runtime ':twitter-bootstrap:3.0.2'
   }
 }

@@ -1,7 +1,7 @@
 package com.jmguilla
 
 class Utils {
-  def static String shortId(int nbChars) {
+  def static String shortId(int nbChars = 6) {
     def chars = ('0'..'9') + ('a'..'h') + ('j'..'k') + ('m'..'z') + ('A'..'H') + ('J'..'K') + ('M'..'Z')
     def random = new Random()
     def id = ""

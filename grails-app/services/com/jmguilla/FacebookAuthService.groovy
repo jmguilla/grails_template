@@ -1,15 +1,15 @@
 package com.jmguilla
 
-import facebook4j.Facebook
-import facebook4j.FacebookFactory
-import facebook4j.auth.AccessToken
-import grails.transaction.Transactional
-
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.GrantedAuthorityImpl
 
 import com.jmguilla.oauth.FacebookUser
 import com.the6hours.grails.springsecurity.facebook.FacebookAuthToken
+
+import facebook4j.Facebook
+import facebook4j.FacebookFactory
+import facebook4j.auth.AccessToken
+import grails.transaction.Transactional
 
 @Transactional
 class FacebookAuthService {
@@ -21,8 +21,7 @@ class FacebookAuthService {
     user.getAuthorities().collect { new GrantedAuthorityImpl(it.authority) } as Set
   }
 
-  //TODO create a default password and email it
-  //TODO check correct setup of roles
+  //TODO centralise user creation
   def User createAppUser(FacebookUser fbUser, FacebookAuthToken token) {
     Facebook facebook = new FacebookFactory().getInstance();
     facebook.setOAuthAccessToken(new AccessToken(token.accessToken.accessToken, null));
@@ -37,6 +36,7 @@ class FacebookAuthService {
       user.password = password.encodeAsSHA1()
       user.email = fbOAuth.email
       user = user.save(flush: true, failOnError: true)
+      UserRole.create(user, Role.findByAuthority('ROLE_USER'), true)
       mailService.sendMail {
         to user.email
         subject messageSource.getMessage('user.welcome.subject',[

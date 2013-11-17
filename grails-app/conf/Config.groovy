@@ -153,6 +153,6 @@ grails{
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.jmguilla.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.jmguilla.UserRole'
+grails.plugins.springsecurity.userLookup.usernamePropertyName='email'
 grails.plugins.springsecurity.authority.className = 'com.jmguilla.Role'
-
 grails.plugins.springsecurity.facebook.domain.classname='com.jmguilla.oauth.FacebookUser'
