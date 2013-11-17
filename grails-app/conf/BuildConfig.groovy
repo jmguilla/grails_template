@@ -65,6 +65,7 @@ grails.project.dependency.resolution = {
     //added afterwards for the application
     compile ":mail:1.0.1"
     compile ":spring-security-facebook:0.15"
+    compile ":simple-captcha:0.9.4"
 
     // plugins needed at runtime but not for compilation
     runtime ":hibernate:3.6.10.2" // or ":hibernate4:4.1.11.2"

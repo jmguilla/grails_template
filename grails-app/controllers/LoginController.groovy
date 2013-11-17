@@ -31,6 +31,8 @@ class LoginController {
 
   def mailService
   
+  def simpleCaptchaService
+  
   def grailsApplication
 
   /**
@@ -135,10 +137,15 @@ class LoginController {
 
   @Transactional
   def createUser(){
+    if(!simpleCaptchaService.validateCaptcha(params.captcha)){
+      flash.error = message(code: "user.create.captcha.notValid.message", args: [])
+      render view: 'create', params: params
+      return
+    }
     User user = User.findWhere(email: params.email)
     if(user){
-      flash.error = message("user.create.emailInUse", [params.email])
-      render action: 'create', params: params
+      flash.error = message(code: "user.create.emailInUse.message", args: [params.email])
+      render view: 'create', params: params
       return
     }
     def password = params['password']

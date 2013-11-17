@@ -118,6 +118,12 @@
 			</p>
 
 			<p>
+				<img src="${createLink(controller: 'simpleCaptcha', action: 'captcha')}"/>
+				<label for="captcha"><g:message code="user.create.captcha.label" />:</label>
+				<input type="text" class='text_' name='captcha' id='captcha'/>
+			</p>
+
+			<p>
 				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
 			</p>
 		</form>
