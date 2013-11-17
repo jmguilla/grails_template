@@ -9,6 +9,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Grails"/></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<r:require modules="main_css" />
 		<r:require modules="bootstrap" />
 		<g:layoutHead/>
 		<r:layoutResources />
@@ -18,7 +19,7 @@
 			<div class="row">
 				<div class="col-md-3" role="banner" id="grailsLogo"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
 				<div class="col-md-9" role="banner">
-					<ul class="list-inline">
+					<ul class="list-inline banner">
 						<sec:ifNotGranted roles="ROLE_USER">
 							<li><facebookAuth:connect permissions="email,user_photos" /></li>
 							<li><a href="${createLink( controller: "login", action: "auth")}"><g:message code="app.page.landing.signin" default="Sign In" /></a></li>
