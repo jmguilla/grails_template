@@ -20,19 +20,22 @@ class FacebookAuthService {
     user.getAuthorities().collect { new GrantedAuthorityImpl(it.authority) } as Set
   }
 
-  //TODO instead of systematically create a new user, try to find him if he already exists
   //TODO create a default password and email it
   //TODO check correct setup of roles
   def User createAppUser(FacebookUser fbUser, FacebookAuthToken token) {
     Facebook facebook = new FacebookFactory().getInstance();
     facebook.setOAuthAccessToken(new AccessToken(token.accessToken.accessToken, null));
     def fbOAuth = facebook.getMe()
-    User user = new User()
-    user.username = fbOAuth.username
-    user.firstName = fbOAuth.firstName
-    user.lastName = fbOAuth.lastName
-    user.password = fbOAuth.username.encodeAsSHA1()
-    user.email = fbOAuth.email
-    user.save(flush: true, failOnError: true)
+    User user = User.findWhere(email: fbOAuth.email)
+    if(!user){
+      user = new User()
+      user.username = fbOAuth.username
+      user.firstName = fbOAuth.firstName
+      user.lastName = fbOAuth.lastName
+      user.password = fbOAuth.username.encodeAsSHA1()
+      user.email = fbOAuth.email
+      user = user.save(flush: true, failOnError: true)
+    }
+    user
   }
 }
