@@ -26,7 +26,18 @@
 							<li><a href="${createLink( controller: "login", action: "create")}"><g:message code="app.page.landing.signup" default="Sign Up Now!" /></a></li>
 						</sec:ifNotGranted>
 						<sec:ifAllGranted roles="ROLE_USER">
-							<sec:username/> (<g:link uri="/j_spring_security_logout">Logout</g:link>)
+						<li>
+						<div class="dropdown">
+  							<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+    							<sec:username/>  <span class="caret"></span>
+  							</a>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+								  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><g:message code="app.page.landing.myaccount.label" default="My Account" /></a></li>
+								  <li role="presentation" class="divider"></li>
+								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( uri: '/j_spring_security_logout')}"><g:message code="app.page.landing.logout.label" default="Logout" /></a></li>
+							  </ul>
+							</div>
+						</li>
 						</sec:ifAllGranted>
 						<li>
 							<form class="navbar-form" role="search">
@@ -51,8 +62,7 @@
 				</div>
 		
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>
