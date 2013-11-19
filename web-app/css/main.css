@@ -6,3 +6,7 @@
 ul.banner{
 	/*margin-top: 5px  */
 }
+
+.top-buffer { margin-top:20px; }
+
+.row {border: 1px solid black;}

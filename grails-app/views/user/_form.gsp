@@ -1,34 +1,50 @@
 <%@ page import="com.jmguilla.User" %>
-<div class="row">
-	<div class="col-md-2 ${hasErrors(bean: userInstance, field: 'firstName', 'error')}">
-		<label for="firstName">
-			<g:message code="app.page.profile.edit.firstname.label" default="First Name" />
-		</label>
+<form class="form-horizontal" role="form">
+<div class="panel panel-default">
+	<div class="panel-heading"><g:message code="app.page.profile.edit.mandatory.label" default="Mandatory" /></div>
+	<div class="panel-body">
+		  <div class="form-group">
+		    <label for="firstname" class="col-sm-2 control-label ${hasErrors(bean: userInstance, field: 'firstName', 'error')}"><g:message code="app.page.profile.edit.firstname.label" default="First Name" /></label>
+		    <div class="col-sm-10">
+		      <input type="text" value="${userInstance?.firstName}" class="form-control ${hasErrors(bean: userInstance, field: 'firstName', 'error')}" id="firstname" placeholder="Firstname">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="lastname" class="col-sm-2 control-label ${hasErrors(bean: userInstance, field: 'lastName', 'error')}"><g:message code="app.page.profile.edit.lastname.label" default="Last Name" /></label>
+		    <div class="col-sm-10">
+		      <input type="text" value="${userInstance?.lastName}" class="form-control ${hasErrors(bean: userInstance, field: 'lastName', 'error')}" id="lastname" placeholder="Lastname">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="username" class="col-sm-2 control-label ${hasErrors(bean: userInstance, field: 'username', 'error')}"><g:message code="app.page.profile.edit.username.label" default="User Name" /></label>
+		    <div class="col-sm-10">
+		      <input type="text" value="${userInstance?.username}" class="form-control ${hasErrors(bean: userInstance, field: 'username', 'error')}" id="username" placeholder="Username">
+		    </div>
+		  </div>
 	</div>
-	<div class="col-md-7">
-		<g:textField name="firstName" value="${userInstance?.firstName}"/>
+	<div class="panel-heading"><g:message code="app.page.profile.edit.optional.label" default="Optional" /></div>
+	<div class="panel-body">
+		  <div class="form-group">
+		    <label for="firstname" class="col-sm-2 control-label ${hasErrors(bean: userInstance, field: 'firstName', 'error')}"><g:message code="app.page.profile.edit.firstname.label" default="First Name" /></label>
+		    <div class="col-sm-10">
+		      <input type="text" value="${userInstance?.firstName}" class="form-control ${hasErrors(bean: userInstance, field: 'firstName', 'error')}" id="firstname" placeholder="Firstname">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="lastname" class="col-sm-2 control-label ${hasErrors(bean: userInstance, field: 'lastName', 'error')}"><g:message code="app.page.profile.edit.lastname.label" default="Last Name" /></label>
+		    <div class="col-sm-10">
+		      <input type="text" value="${userInstance?.lastName}" class="form-control ${hasErrors(bean: userInstance, field: 'lastName', 'error')}" id="lastname" placeholder="Lastname">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="username" class="col-sm-2 control-label ${hasErrors(bean: userInstance, field: 'username', 'error')}"><g:message code="app.page.profile.edit.username.label" default="User Name" /></label>
+		    <div class="col-sm-10">
+		      <input type="text" value="${userInstance?.username}" class="form-control ${hasErrors(bean: userInstance, field: 'username', 'error')}" id="username" placeholder="Username">
+		    </div>
+		  </div>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-2 ${hasErrors(bean: userInstance, field: 'lastName', 'error')} ">
-		<label for="lastName">
-			<g:message code="app.page.profile.edit.lastname.label" default="Last Name" />
-		</label>
-	</div>
-	<div class="col-md-7">
-		<g:textField name="lastName" value="${userInstance?.lastName}"/>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-2 ${hasErrors(bean: userInstance, field: 'username', 'error')} ">
-		<label for="userName">
-			<g:message code="app.page.profile.edit.username.label" default="User Name" />
-		</label>
-	</div>
-	<div class="col-md-7">
-		<g:textField name="userName" value="${userInstance?.username}"/>
-	</div>
-</div>
+</form>
 <!-- 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'sha1', 'error')} ">
 	<label for="sha1">
