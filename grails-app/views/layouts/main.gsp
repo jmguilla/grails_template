@@ -20,25 +20,27 @@
 				<div class="col-md-3" role="banner" id="grailsLogo"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
 				<div class="col-md-9" role="banner">
 					<ul class="list-inline banner">
-						<sec:ifNotGranted roles="ROLE_USER">
+						<sec:ifNotGranted roles="ROLE_FACEBOOK">
 							<li><facebookAuth:connect permissions="email,user_photos" /></li>
+						</sec:ifNotGranted>
+						<sec:ifNotLoggedIn roles="ROLE_USER">
 							<li><a href="${createLink( controller: "login", action: "auth")}"><g:message code="app.page.landing.signin" default="Sign In" /></a></li>
 							<li><a href="${createLink( controller: "login", action: "create")}"><g:message code="app.page.landing.signup" default="Sign Up Now!" /></a></li>
-						</sec:ifNotGranted>
-						<sec:ifAllGranted roles="ROLE_USER">
+						</sec:ifNotLoggedIn>
+						<sec:ifLoggedIn roles="ROLE_USER">
 						<li>
 						<div class="dropdown">
   							<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
-    							<sec:username/>  <span class="caret"></span>
+    							<sec:username/><span class="caret"></span>
   							</a>
 							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-								  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><g:message code="app.page.landing.myaccount.label" default="My Account" /></a></li>
+								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( controller: "user", action: "show", id: "")}"><g:message code="app.page.landing.myaccount.label" default="My Account" /></a></li>
 								  <li role="presentation" class="divider"></li>
 								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( uri: '/j_spring_security_logout')}"><g:message code="app.page.landing.logout.label" default="Logout" /></a></li>
 							  </ul>
 							</div>
 						</li>
-						</sec:ifAllGranted>
+						</sec:ifLoggedIn>
 						<li>
 							<form class="navbar-form" role="search">
 							<div class="form-group">
@@ -50,37 +52,41 @@
 					</ul>
 				</div>
 			</div>
-			<nav class="navbar navbar-default" role="navigation">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-		
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</nav>
+		</div>
+		<div class="container">
+			<div class="row">
+				<nav class="navbar navbar-default" role="navigation">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+			
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="#">Link</a></li>
+							<li><a href="#">Link</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+									<li class="divider"></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
 		</div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>

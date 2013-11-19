@@ -1,5 +1,5 @@
 facebook4j.properties
-mem.*
+*.db
 grails-app/conf/priv/**
 target-eclipse
 target
