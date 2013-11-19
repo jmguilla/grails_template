@@ -12,7 +12,7 @@ class DataWarmupService {
       new Role(authority: "ROLE_FACEBOOK").save(flush: true, failOnError: true)
     }
     def user = null
-    if(!(user = new User(username:'jmguilla', password:'jmguilla', email:'guillauj@gmail.com', firstName: 'Jean-Michel', lastName: 'Guillaume', phoneNumber: '+33000000000', sha1: Utils.shortId())).save(flush: true, failOnErro: true)){
+    if(!(user = new User(username:'jmguilla', password:'jmguilla', email:'guillauj@gmail.com', firstName: 'Jean-Michel', lastName: 'Guillaume', phoneNumber: '+33000000000', sha1: Utils.shortId(), signin: new Date())).save(flush: true, failOnErro: true)){
       for(error in user.errors.getAllErrors()){
         println error
       }
