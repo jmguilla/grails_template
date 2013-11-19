@@ -2,5 +2,11 @@ package com.jmguilla
 
 class UserController {
 
-    def index() { }
+  def springSecurityService
+
+  static scaffold = true
+
+  def account(){
+    [userInstance: User.get(params.id)]
+  }
 }

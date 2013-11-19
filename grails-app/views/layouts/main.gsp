@@ -1,3 +1,8 @@
+<%@ page import="com.jmguilla.User" %>
+<%@ page import="grails.plugins.springsecurity.SpringSecurityService" %>
+
+<g:set var="springSecurityService" bean="springSecurityService"/>
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
@@ -34,7 +39,7 @@
     							<sec:username/><span class="caret"></span>
   							</a>
 							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( controller: "user", action: "show", id: "")}"><g:message code="app.page.landing.myaccount.label" default="My Account" /></a></li>
+								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( controller: "user", action: "show", id: springSecurityService.getCurrentUser().id)}"><g:message code="app.page.landing.myaccount.label" default="My Account" /></a></li>
 								  <li role="presentation" class="divider"></li>
 								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( uri: '/j_spring_security_logout')}"><g:message code="app.page.landing.logout.label" default="Logout" /></a></li>
 							  </ul>

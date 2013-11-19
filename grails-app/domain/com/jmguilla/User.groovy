@@ -35,7 +35,10 @@ class User {
     fbUser(nullable: true, unique: true)
   }
 
-  static mapping = { password column: 'password' }
+  static mapping = {
+    password column: 'password'
+    version false
+  }
 
   Set<Role> getAuthorities() {
     UserRole.findAllByUser(this).collect { it.role } as Set

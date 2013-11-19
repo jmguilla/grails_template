@@ -1,31 +1,35 @@
 <%@ page import="com.jmguilla.User" %>
-
-
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'firstName', 'error')} ">
-	<label for="firstName">
-		<g:message code="user.firstName.label" default="First Name" />
-		
-	</label>
-	<g:textField name="firstName" maxlength="64" value="${userInstance?.firstName}"/>
+<div class="row">
+	<div class="col-md-2 ${hasErrors(bean: userInstance, field: 'firstName', 'error')}">
+		<label for="firstName">
+			<g:message code="app.page.profile.edit.firstname.label" default="First Name" />
+		</label>
+	</div>
+	<div class="col-md-7">
+		<g:textField name="firstName" value="${userInstance?.firstName}"/>
+	</div>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'lastName', 'error')} ">
-	<label for="lastName">
-		<g:message code="user.lastName.label" default="Last Name" />
-		
-	</label>
-	<g:textField name="lastName" maxlength="64" value="${userInstance?.lastName}"/>
+<div class="row">
+	<div class="col-md-2 ${hasErrors(bean: userInstance, field: 'lastName', 'error')} ">
+		<label for="lastName">
+			<g:message code="app.page.profile.edit.lastname.label" default="Last Name" />
+		</label>
+	</div>
+	<div class="col-md-7">
+		<g:textField name="lastName" value="${userInstance?.lastName}"/>
+	</div>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'phoneNumber', 'error')} ">
-	<label for="phoneNumber">
-		<g:message code="user.phoneNumber.label" default="Phone Number" />
-		
-	</label>
-	<g:textField name="phoneNumber" value="${userInstance?.phoneNumber}"/>
+<div class="row">
+	<div class="col-md-2 ${hasErrors(bean: userInstance, field: 'username', 'error')} ">
+		<label for="userName">
+			<g:message code="app.page.profile.edit.username.label" default="User Name" />
+		</label>
+	</div>
+	<div class="col-md-7">
+		<g:textField name="userName" value="${userInstance?.username}"/>
+	</div>
 </div>
-
+<!-- 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'sha1', 'error')} ">
 	<label for="sha1">
 		<g:message code="user.sha1.label" default="Sha1" />
@@ -105,4 +109,4 @@
 	</label>
 	<g:checkBox name="passwordExpired" value="${userInstance?.passwordExpired}" />
 </div>
-
+ -->

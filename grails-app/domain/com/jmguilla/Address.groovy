@@ -2,6 +2,7 @@ package com.jmguilla
 
 class Address {
 
-    static constraints = {
-    }
+  static mapping = { version false }
+  static constraints = {
+  }
 }
