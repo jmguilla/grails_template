@@ -5,9 +5,10 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
+		<r:require modules="angular_app"/>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container" ng-controller="UserCtrl">
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
