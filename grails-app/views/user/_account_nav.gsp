@@ -11,7 +11,7 @@
 	</div>
 </g:if>
 <ul class="nav nav-tabs nav-justified">
-	<li class="${activeNav == 'dashboard' ? 'active' : '' }"><a href="#"><g:message code="app.page.account.nav.dashboard.label" default="Dashboard"/></a></li>
-	<li class="${activeNav == 'profile' ? 'active' : '' }"><a href="#"><g:message code="app.page.account.nav.profile.label" default="Profile"/></a></li>
-	<li class="${activeNav == 'account' ? 'active' : '' }"><a href="#"><g:message code="app.page.account.nav.account.label" default="Account"/></a></li>
+	<li class="${activeNav == 'dashboard' ? 'active' : '' }"><a href="${activeNav == 'dashboard' ? '#': g.createLink(controller: 'user', action: 'account', id: userInstance.id)}"><g:message code="app.page.account.nav.dashboard.label" default="Dashboard"/></a></li>
+	<li class="${activeNav == 'profile' ? 'active' : '' }"><a href="${activeNav == 'profile' ? '#': g.createLink(controller: 'user', action: 'edit', id: userInstance.id)}"><g:message code="app.page.account.nav.profile.label" default="Profile"/></a></li>
+	<li class="${activeNav == 'account' ? 'active' : '' }"><a href="${activeNav == 'account' ? '#': g.createLink(controller: 'user', action: 'show', id: userInstance.id)}"><g:message code="app.page.account.nav.account.label" default="Account"/></a></li>
 </ul>

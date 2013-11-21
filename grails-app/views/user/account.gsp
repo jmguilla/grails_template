@@ -8,7 +8,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<g:render template="account_nav" model="['activeNav': 'dashboard']"/>
+			<g:render template="account_nav" model="['activeNav': 'dashboard', 'userInstance': userInstance]"/>
 		</div>
 		<div class="row">
 			<div class="col-md-4">
