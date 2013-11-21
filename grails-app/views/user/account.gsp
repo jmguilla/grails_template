@@ -1,54 +1,49 @@
-<%@ page import="com.jmguilla.User" %>
+<%@ page import="com.jmguilla.User"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<title><g:message code="app.page.account.title"/></title>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row">
-				<!-- my account banner -->
-				<g:if test="${flash.message}">
-					<div class="message" role="status">${flash.message}</div>
-				</g:if>
-				<g:if test="${flash.error}">
-					<div class="error" role="status">${flash.error}</div>
-				</g:if>
+<head>
+<meta name="layout" content="main">
+<title><g:message code="app.page.account.title" /></title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<g:render template="account_nav" model="['activeNav': 'dashboard']"/>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<a href="#" class="thumbnail"> <img src="http://lorempixel.com/400/400/sports/" />
+					<div class="caption">
+						<h3>
+							<g:if test="${userInstance?.username}">
+								<g:fieldValue bean="${userInstance}" field="username" />
+							</g:if>
+							(
+							<g:if test="${userInstance?.firstName}">
+								<g:fieldValue bean="${userInstance}" field="firstName" />
+							</g:if>
+							<g:if test="${userInstance?.lastName}">
+								<g:fieldValue bean="${userInstance}" field="lastName" />
+							</g:if>
+							)
+						</h3>
+					</div>
+				</a>
 			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<a href="#" class="thumbnail">
-						<img src="http://lorempixel.com/400/400/sports/"/>
-						<div class="caption">
-							<h3>
-								<g:if test="${userInstance?.username}"><g:fieldValue bean="${userInstance}" field="username"/></g:if>
-								(<g:if test="${userInstance?.firstName}"><g:fieldValue bean="${userInstance}" field="firstName"/></g:if>
-								<g:if test="${userInstance?.lastName}"><g:fieldValue bean="${userInstance}" field="lastName"/></g:if>)
-							</h3>
-						</div>	
-					</a>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-8">Lorem Ipsum</div>
 				</div>
-				<div class="col-md-8">
-					<div class="row">
-						<div class="col-md-8">
-							Lorem Ipsum
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8">
-							Lorem Ipsum 2nd row
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8">
-							Lorem Ipsum 3rd row
-						</div>
-					</div>
+				<div class="row">
+					<div class="col-md-8">Lorem Ipsum 2nd row</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">Lorem Ipsum 3rd row</div>
 				</div>
 			</div>
 		</div>
-		<!-- 
+	</div>
+	<!-- 
 		<div id="show-user" class="content scaffold-show" role="main">
 					<ol class="property-list user">
 						<g:if test="${userInstance?.firstName}">
@@ -177,5 +172,5 @@
 					</g:form>
 				</div>
 				 -->
-	</body>
+</body>
 </html>
