@@ -1,5 +1,4 @@
 <%@ page import="com.jmguilla.User" %>
-<form class="form-horizontal" role="form">
 <div class="panel panel-default">
 	<div class="panel-heading"><g:message code="gsp.user.profile.edit.mandatory.label" default="Mandatory" /></div>
 	<div class="panel-body">
@@ -44,7 +43,6 @@
 		  </div>
 	</div>
 </div>
-</form>
 <!-- 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'sha1', 'error')} ">
 	<label for="sha1">

@@ -8,7 +8,7 @@
 		<r:require modules="angular_app"/>
 	</head>
 	<body>
-		<div class="container" ng-controller="UserCtrl">
+		<div class="container" ng-app="grailsTemplate" ng-controller="UserCtrl">
 			<div class="row">
 				<g:render template="nav" model="['activeNav': 'profile', 'userInstance': userInstance]"/>
 			</div>
@@ -17,14 +17,14 @@
 				<g:render template="profile_menu" model="['activeMenu': 'profile']"/>
 			</div>
 			<div class="col-md-9">
-				<g:form url="[resource:userInstance, action:'update']" method="PUT" >
+				<form ng-submit="update()">
 					<fieldset class="form">
 						<g:render template="form"/>
 					</fieldset>
 					<fieldset class="buttons">
 						<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 					</fieldset>
-				</g:form>
+				</form>
 			</div>
 		</div>
 	</body>

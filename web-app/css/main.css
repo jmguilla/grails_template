@@ -5,8 +5,4 @@ body { padding-top: 70px; }
   width: 100%;
 }
 
-ul.banner{
-	/*margin-top: 5px  */
-}
-
-.top-buffer { margin-top:20px; }
+.top-buffer { margin-top:10px; }
