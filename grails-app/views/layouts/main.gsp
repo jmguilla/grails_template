@@ -29,8 +29,8 @@
 							<li><facebookAuth:connect permissions="email,user_photos" /></li>
 						</sec:ifNotGranted>
 						<sec:ifNotLoggedIn roles="ROLE_USER">
-							<li><a href="${createLink( controller: "login", action: "auth")}"><g:message code="app.page.landing.signin" default="Sign In" /></a></li>
-							<li><a href="${createLink( controller: "login", action: "create")}"><g:message code="app.page.landing.signup" default="Sign Up Now!" /></a></li>
+							<li><a href="${createLink( controller: "login", action: "auth")}"><g:message code="gsp.landing.signin" default="Sign In" /></a></li>
+							<li><a href="${createLink( controller: "login", action: "create")}"><g:message code="gsp.landing.signup" default="Sign Up Now!" /></a></li>
 						</sec:ifNotLoggedIn>
 						<sec:ifLoggedIn roles="ROLE_USER">
 						<li>
@@ -39,9 +39,9 @@
     							<sec:username/><span class="caret"></span>
   							</a>
 							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( controller: "user", action: "account", id: springSecurityService.getCurrentUser().id)}"><g:message code="app.page.landing.myaccount.label" default="My Account" /></a></li>
+								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( controller: "user", action: "dashboard", id: springSecurityService.getCurrentUser().id)}"><g:message code="gsp.landing.myaccount.label" default="My Account" /></a></li>
 								  <li role="presentation" class="divider"></li>
-								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( uri: '/j_spring_security_logout')}"><g:message code="app.page.landing.logout.label" default="Logout" /></a></li>
+								  <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink( uri: '/j_spring_security_logout')}"><g:message code="gsp.landing.logout.label" default="Logout" /></a></li>
 							  </ul>
 							</div>
 						</li>
@@ -51,7 +51,7 @@
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Search">
 							</div>
-							<button type="submit" class="btn btn-default"><g:message code="app.page.landing.search.button.label" default="Submit"/></button>
+							<button type="submit" class="btn btn-default"><g:message code="gsp.landing.search.button.label" default="Submit"/></button>
 							</form>
 						</li>
 					</ul>

@@ -12,7 +12,11 @@ class UserController {
 
   static scaffold = true
 
-  def account(){
+  def dashboard(){
+    [userInstance: User.get(params.id)]
+  }
+  
+  def account(User userInstance){
     [userInstance: User.get(params.id)]
   }
   

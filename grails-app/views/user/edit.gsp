@@ -10,13 +10,11 @@
 	<body>
 		<div class="container" ng-controller="UserCtrl">
 			<div class="row">
-				<g:render template="account_nav" model="['activeNav': 'profile', 'userInstance': userInstance]"/>
+				<g:render template="nav" model="['activeNav': 'profile', 'userInstance': userInstance]"/>
 			</div>
+			<!-- left colum -->
 			<div class="col-md-3">
-				<!-- left colum -->
-				<div class="row">
-				<div class="col-md-3"><h4>Profile</h4></div>
-				</div>
+				<g:render template="profile_menu" model="['activeMenu': 'profile']"/>
 			</div>
 			<div class="col-md-9">
 				<g:form url="[resource:userInstance, action:'update']" method="PUT" >

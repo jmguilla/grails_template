@@ -87,7 +87,7 @@
 <body>
 <div id='login'>
 	<div class='inner'>
-		<div class='fheader'><g:message code="app.page.signin.header"/></div>
+		<div class='fheader'><g:message code="gsp.signin.header"/></div>
 
 		<g:if test='${flash.message}'>
 			<div class='login_message'>${flash.message}</div>
@@ -99,22 +99,22 @@
 		<hr style="border-top: 1px solid black"/>
 		<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
 			<p>
-				<label for='email'><g:message code="app.page.signin.email.label"/>:</label>
+				<label for='email'><g:message code="gsp.signin.email.label"/>:</label>
 				<input type='text' class='text_' name='j_username' id='username'/>
 			</p>
 
 			<p>
-				<label for='password'><g:message code="app.page.signin.password.label"/>:</label>
+				<label for='password'><g:message code="gsp.signin.password.label"/>:</label>
 				<input type='password' class='text_' name='j_password' id='password'/>
 			</p>
 
 			<p id="remember_me_holder">
 				<input type='checkbox' class='chk' name='${rememberMeParameter}' id='remember_me' <g:if test='${hasCookie}'>checked='checked'</g:if>/>
-				<label for='remember_me'><g:message code="app.page.signin.remember.me.label"/></label>
+				<label for='remember_me'><g:message code="gsp.signin.remember.me.label"/></label>
 			</p>
 
 			<p>
-				<input type='submit' id="submit" value='${message(code: "app.page.signin.connection.button.label")}'/>
+				<input type='submit' id="submit" value='${message(code: "gsp.signin.connection.button.label")}'/>
 			</p>
 		</form>
 	</div>
