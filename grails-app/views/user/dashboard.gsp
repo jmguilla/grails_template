@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta name="layout" content="main">
-<title><g:message code="app.page.dashboard.title" /></title>
+<title><g:message code="gsp.user.dashboard.title" /></title>
 </head>
 <body>
 	<div class="container">

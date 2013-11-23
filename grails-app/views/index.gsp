@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><g:message code="app.page.landing.title" defaul="Grails Template landing page" /></title>
+<title><g:message code="gsp.landing.title" defaul="Grails Template landing page" /></title>
 <meta name="layout" content="main" />
 </head>
 <body>
