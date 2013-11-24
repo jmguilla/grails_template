@@ -26,22 +26,22 @@
 		<div class="row">
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<div class="col-md-3" role="banner" id="grailsLogo">
+				<span class="navbar-header">
+					<span class="col-md-3" role="banner" id="grailsLogo">
 						<a href="${createLink(uri:'/') }"><img
 							src="${resource(dir: 'images', file: 'grails_logo.png')}"
 							alt="Grails" /></a>
-					</div>
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
+					</span>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
 					</button>
-				</div>
+				</span>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>
@@ -88,7 +88,7 @@
 						</sec:ifLoggedIn>
 					</ul>
 					<!-- /.navbar-collapse -->
-				</div>
+				</span>
 			</nav>
 		</div>
 	</div>
