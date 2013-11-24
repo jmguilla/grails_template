@@ -150,9 +150,10 @@ class LoginController {
       return
     }
     def password = params['password']
+    //TODO externalize that number for shortId and user creation
     user = new User(params)
+    user.signin = new Date()
     user.enabled = false
-    //TODO externalize that number
     user.sha1 = Utils.shortId(16)
     while(User.findAllWhere(sha1: user.sha1).size() > 0){
       user.sha1 = Utils.shortId(16)

@@ -29,7 +29,24 @@
 	</div>
 	<div class="panel-heading"><g:message code="gsp.user.profile.edit.optional.label" default="Optional" /></div>
 	<div class="panel-body">
-		  <div class="form-group ${hasErrors(bean: userInstance, field: 'birthday', 'has-error')}">
+		<div class="form-group">
+			<label for="facebook" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.fb.label" default="Link your FB account"/></label>
+			<div class="col-sm-10">
+		<sec:ifNotGranted roles="ROLE_FACEBOOK">
+				<facebookAuth:connect permissions="email,user_photos" text="Link your FB account"/>
+		</sec:ifNotGranted>
+		<sec:ifAllGranted roles="ROLE_FACEBOOK">
+			<div class="row">
+				<div class="col-sm-7">
+				<span><g:message code="gsp.user.profile.edit.fb.connected"/></span>
+				</div><div class="col-sm-3">
+				<span><button type="button" class="btn btn-default"><g:message code="gsp.button.disconnect" default="Disconnect"/></button></span>
+				</div>
+			</div>
+		</sec:ifAllGranted>
+			</div>
+		</div>
+		<div class="form-group ${hasErrors(bean: userInstance, field: 'birthday', 'has-error')}">
 		    <label for="birthday" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.birthday.label" default="Birth Day" /></label>
 		    <div class="col-sm-10">
 		      <input ng-model="user.birthday" type="text" value="${userInstance?.birthday}" class="form-control" id="birthday" placeholder="Birthday">

@@ -59,10 +59,8 @@
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<sec:ifNotGranted roles="ROLE_FACEBOOK">
-							<li><facebookAuth:connect permissions="email,user_photos" /></li>
-						</sec:ifNotGranted>
 						<sec:ifNotLoggedIn roles="ROLE_USER">
+							<li><facebookAuth:connect permissions="email,user_photos" /></li>
 							<li><a
 								href="${createLink( controller: "login", action: "auth")}"><g:message
 										code="gsp.landing.signin" default="Sign In" /></a></li>

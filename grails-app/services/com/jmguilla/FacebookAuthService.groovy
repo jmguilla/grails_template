@@ -34,6 +34,7 @@ class FacebookAuthService {
     if(!user){
       def password = "94bc790da2e2"
       user = new User()
+      user.signin = new Date()
       user.username = fbOAuth.username
       user.firstName = fbOAuth.firstName
       user.lastName = fbOAuth.lastName
