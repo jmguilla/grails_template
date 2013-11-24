@@ -13,7 +13,7 @@ class User {
   String lastName
   String phoneNumber
   Date signin
-  Date birthdate
+  Date birthday
   Address address
   //below required by authentication plugin
   //below, in addition to password, required by spring security plugin
@@ -35,7 +35,7 @@ class User {
     username(nullable: true)
     password(nullable: false)
     signin(nullable: false)
-    birthdate(nullable: true)
+    birthday(nullable: true)
     fbUser(nullable: true, unique: true)
   }
 

@@ -5,6 +5,8 @@ body { padding-top: 70px; }
   width: 100%;
 }
 
-.top-buffer { margin-top:10px; }
+.top-buffer { padding-top:10px; }
+.bottom-buffer { padding-top:10px; }
 
 .caption {text-align:center;}
+

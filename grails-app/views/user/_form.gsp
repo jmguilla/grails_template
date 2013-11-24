@@ -29,7 +29,18 @@
 	</div>
 	<div class="panel-heading"><g:message code="gsp.user.profile.edit.optional.label" default="Optional" /></div>
 	<div class="panel-body">
-		  Put everything not required here...
+		  <div class="form-group ${hasErrors(bean: userInstance, field: 'birthday', 'has-error')}">
+		    <label for="birthday" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.birthday.label" default="Birth Day" /></label>
+		    <div class="col-sm-10">
+		      <input ng-model="user.birthday" type="text" value="${userInstance?.birthday}" class="form-control" id="birthday" placeholder="Birthday">
+		    </div>
+		  </div>
+		  <div class="form-group ${hasErrors(bean: userInstance, field: 'phoneNumber', 'has-error')}">
+		    <label for="phonenumber" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.phonenumber.label" default="Phone Number" /></label>
+		    <div class="col-sm-10">
+		      <input ng-model="user.phoneNumber" type="text" value="${userInstance?.phoneNumber}" class="form-control" id="phonenumber" placeholder="Phonenumber">
+		    </div>
+		  </div>
 	</div>
 </div>
 <!-- 

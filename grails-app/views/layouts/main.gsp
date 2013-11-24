@@ -41,8 +41,7 @@
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>
@@ -56,17 +55,7 @@
 								<li><a href="#">Separated link</a></li>
 								<li class="divider"></li>
 								<li><a href="#">One more separated link</a></li>
-							</ul></li>
-						<li>
-							<form class="navbar-form" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
-								</div>
-								<button type="submit" class="btn btn-default">
-									<g:message code="gsp.landing.search.button.label"
-										default="Submit" />
-								</button>
-							</form>
+							</ul>
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">

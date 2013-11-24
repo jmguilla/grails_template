@@ -32,20 +32,40 @@ class UserController {
     }
     withFormat{
       json{
-        User me = springSecurityService.getCurrentUser()
-        bindData(me, request.JSON)
-        me.save(failOnError: true, flush: true)
-        render (me as JSON)
+        try{
+          User me = springSecurityService.getCurrentUser()
+          bindData(me, request.JSON)
+          me.save(failOnError: true, flush: true)
+          render ( new ApiResult(type: 'success', message: message(code: 'app.api.user.update.success', default: 'Update performed successfully')) as JSON)
+        }catch(Throwable t){
+          //TODO log here!
+          render ( status: 400, text: new ApiResult(type: 'danger', message: message(code: 'app.api.user.update.failure', args: [t.message], default: 'Cannot performe the update')) as JSON)
+        }
       }
       '*'{ response.sendError(404) }
     }
   }
-
+  
+  @Secured(['ROLE_USER'])
   def dashboard(){
     [userInstance: User.get(params.id)]
   }
-
+  
+  @Secured(['ROLE_USER'])
   def account(User userInstance){
+    [userInstance: User.get(params.id)]
+  }
+  
+  @Secured(['ROLE_USER'])
+  def show(User userInstance){
+    [userInstance: User.get(params.id)]
+  }
+  
+  @Secured(['ROLE_USER'])
+  def edit(User userInstance){
+    if(!params.tab){
+      params.tab = 'profile'
+    }
     [userInstance: User.get(params.id)]
   }
 
