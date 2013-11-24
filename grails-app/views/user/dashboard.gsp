@@ -12,23 +12,27 @@
 		</div>
 		<div class="row">
 			<div class="col-md-4">
-				<a href="#" class="thumbnail"> <img src="http://lorempixel.com/400/400/sports/" />
+				<div class="thumbnail">
+					<img src="http://lorempixel.com/300/300/sports/"/>
 					<div class="caption">
 						<h3>
-							<g:if test="${userInstance?.username}">
-								<g:fieldValue bean="${userInstance}" field="username" />
-							</g:if>
-							(
-							<g:if test="${userInstance?.firstName}">
-								<g:fieldValue bean="${userInstance}" field="firstName" />
-							</g:if>
-							<g:if test="${userInstance?.lastName}">
-								<g:fieldValue bean="${userInstance}" field="lastName" />
-							</g:if>
-							)
+							<a href="${createLink(controller: 'user', action: 'show', id: userInstance.id) }">
+								<g:if test="${userInstance?.firstName}">
+									<g:fieldValue bean="${userInstance}" field="firstName" />
+								</g:if>
+								<g:elseif test="${userInstance?.username}">
+									<g:fieldValue bean="${userInstance}" field="username" />
+								</g:elseif>
+								<g:elseif test="${userInstance?.lastName}">
+									<g:fieldValue bean="${userInstance}" field="lastName" />
+								</g:elseif>
+							</a>
 						</h3>
+						<a href="${createLink(controller: 'user', action: 'edit', id: userInstance.id) }">
+							<g:message code="gsp.user.dashboard.modifyprofile.link" defaul="Modify your profile"/>
+						</a>
 					</div>
-				</a>
+				</div>
 			</div>
 			<div class="col-md-8">
 				Here is a place which could be used like a dashboard for the user. All the interesting activity of the website at a glance!

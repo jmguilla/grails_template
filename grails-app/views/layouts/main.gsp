@@ -28,7 +28,7 @@
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
 					<div class="col-md-3" role="banner" id="grailsLogo">
-						<a href="http://grails.org"><img
+						<a href="${createLink(uri:'/') }"><img
 							src="${resource(dir: 'images', file: 'grails_logo.png')}"
 							alt="Grails" /></a>
 					</div>
