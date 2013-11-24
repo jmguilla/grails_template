@@ -17,7 +17,8 @@ angular.module('grailsTemplateServices', ['ngResource']).
 	  save: {
 		  method: 'POST',
 		  params: {
-			  actionId: 'update'
+			  actionId: 'update',
+			  userId: ''
 		  },
   		headers: {
   			'Content-Type': 'application/json',

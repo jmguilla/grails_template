@@ -1,4 +1,3 @@
-
 <!-- my account banner -->
 <g:if test="${flash.message}">
 	<div class="message" role="status">

@@ -2,45 +2,34 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><g:message code="gsp.user.profile.edit.mandatory.label" default="Mandatory" /></div>
 	<div class="panel-body">
+		  <div class="form-group ${hasErrors(bean: userInstance, field: 'email', 'has-error')}">
+		    <label for="email" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.email.label" default="Email" /></label>
+		    <div class="col-sm-10">
+		      <input ng-model="user.email" type="text" value="${userInstance?.email}" class="form-control" id="email" placeholder="Email">
+		    </div>
+		  </div>
 		  <div class="form-group ${hasErrors(bean: userInstance, field: 'firstName', 'has-error')}">
 		    <label for="firstname" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.firstname.label" default="First Name" /></label>
 		    <div class="col-sm-10">
-		      <input type="text" value="${userInstance?.firstName}" class="form-control" id="firstname" placeholder="Firstname">
+		      <input ng-model="user.firstName" type="text" value="${userInstance?.firstName}" class="form-control" id="firstname" placeholder="Firstname">
 		    </div>
 		  </div>
 		  <div class="form-group ${hasErrors(bean: userInstance, field: 'lastName', 'has-error')}">
 		    <label for="lastname" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.lastname.label" default="Last Name" /></label>
 		    <div class="col-sm-10">
-		      <input type="text" value="${userInstance?.lastName}" class="form-control" id="lastname" placeholder="Lastname">
+		      <input ng-model="user.lastName" type="text" value="${userInstance?.lastName}" class="form-control" id="lastname" placeholder="Lastname">
 		    </div>
 		  </div>
 		  <div class="form-group ${hasErrors(bean: userInstance, field: 'username', 'has-error')}">
 		    <label for="username" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.username.label" default="User Name" /></label>
 		    <div class="col-sm-10">
-		      <input type="text" value="${userInstance?.username}" class="form-control" id="username" placeholder="Username">
+		      <input ng-model="user.username" type="text" value="${userInstance?.username}" class="form-control" id="username" placeholder="Username">
 		    </div>
 		  </div>
 	</div>
 	<div class="panel-heading"><g:message code="gsp.user.profile.edit.optional.label" default="Optional" /></div>
 	<div class="panel-body">
-		  <div class="form-group ${hasErrors(bean: userInstance, field: 'firstName', 'has-error')}">
-		    <label for="firstname" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.firstname.label" default="First Name" /></label>
-		    <div class="col-sm-10">
-		      <input type="text" value="${userInstance?.firstName}" class="form-control" id="firstname" placeholder="Firstname">
-		    </div>
-		  </div>
-		  <div class="form-group ${hasErrors(bean: userInstance, field: 'lastName', 'has-error')}">
-		    <label for="lastname" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.lastname.label" default="Last Name" /></label>
-		    <div class="col-sm-10">
-		      <input type="text" value="${userInstance?.lastName}" class="form-control" id="lastname" placeholder="Lastname">
-		    </div>
-		  </div>
-		  <div class="form-group ${hasErrors(bean: userInstance, field: 'username', 'has-error')}">
-		    <label for="username" class="col-sm-2 control-label"><g:message code="gsp.user.profile.edit.username.label" default="User Name" /></label>
-		    <div class="col-sm-10">
-		      <input type="text" value="${userInstance?.username}" class="form-control" id="username" placeholder="Username">
-		    </div>
-		  </div>
+		  Put everything not required here...
 	</div>
 </div>
 <!-- 

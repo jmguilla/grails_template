@@ -10,30 +10,35 @@ class UserController {
 
   def springSecurityService
 
+  def userService
+
   static scaffold = true
-  
+
   @Secured(['ROLE_USER'])
   def me(){
     def me = springSecurityService.getCurrentUser()
     withFormat{
-      json{
-        render(me as JSON)
-      }
-      xml{
-        render(me as XML)
-      }
-      html{
-        render ''
-      }
+      json{ render(me as JSON) }
+      xml{ render(me as XML) }
+      html{ render '' }
     }
   }
 
-  def update(User userInstance){
+  @Secured(['ROLE_USER'])
+  def update(){
     if(!request.post){
       response.sendError(405)
       return
     }
-    render (request.JSON)
+    withFormat{
+      json{
+        User me = springSecurityService.getCurrentUser()
+        bindData(me, request.JSON)
+        me.save(failOnError: true, flush: true)
+        render (me as JSON)
+      }
+      '*'{ response.sendError(404) }
+    }
   }
 
   def dashboard(){
