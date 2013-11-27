@@ -27,10 +27,8 @@
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<span class="navbar-header">
-					<span class="col-md-3" role="banner" id="grailsLogo">
-						<a href="${createLink(uri:'/') }"><img
-							src="${resource(dir: 'images', file: 'grails_logo.png')}"
-							alt="Grails" /></a>
+					<span class="col-md-3 navbar-inner" role="banner" id="grailsLogo">
+						<a class="brand" href="${createLink(uri:'/') }"><g:message code="gsp.app.name" default="myApp"/></a>
 					</span>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span>
@@ -41,7 +39,7 @@
 				</span>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="vertical-align: middle">
 					<ul class="nav navbar-nav">
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>

@@ -1,10 +1,14 @@
-body { padding-top: 70px; }
+body { padding-top: 50px; }
 /* this is used by ng to hide content before the app is fully loaded */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
 
-.navbar { heigh: 50px; }
+.navbar { height: 50px; }
+
+span#grailsLogo {
+	height: 50px;
+}
 
 .container-full {
   margin: 0 auto;
