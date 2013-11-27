@@ -4,11 +4,11 @@ body { padding-top: 50px; }
   display: none !important;
 }
 
-.navbar { height: 50px; }
-
-span#grailsLogo {
-	height: 50px;
+a.navbar-brand {
+	color: #428bca !important;
 }
+
+.navbar { height: 50px; }
 
 .container-full {
   margin: 0 auto;

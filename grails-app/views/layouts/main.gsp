@@ -17,7 +17,6 @@
 <title><g:layoutTitle default="Grails" /></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <r:require modules="main_css" />
-<r:require modules="bootstrap" />
 <g:layoutHead />
 <r:layoutResources />
 </head>
@@ -26,20 +25,20 @@
 		<div class="row">
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<span class="navbar-header">
-					<span class="col-md-3 navbar-inner" role="banner" id="grailsLogo">
-						<a class="brand" href="${createLink(uri:'/') }"><g:message code="gsp.app.name" default="myApp"/></a>
-					</span>
+				<div class="navbar-header">
+					<div class="col-md-3 navbar-inner" role="banner" id="grailsLogo">
+						<a class="navbar-brand" href="${createLink(uri:'/') }"><g:message code="gsp.app.name" default="myApp"/></a>
+					</div>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span> 
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-				</span>
+				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="vertical-align: middle">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="vertical-align: middle">
 					<ul class="nav navbar-nav">
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>
@@ -84,7 +83,7 @@
 						</sec:ifLoggedIn>
 					</ul>
 					<!-- /.navbar-collapse -->
-				</span>
+				</div>
 			</nav>
 		</div>
 	</div>

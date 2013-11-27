@@ -1,5 +1,8 @@
 modules = {
-  main_css{ resource url: 'css/main.css' }
+  main_css{ 
+    dependsOn 'bootstrap' 
+    resource url: 'css/main.css' 
+  }
   application { resource url:'js/application.js' }
   angular{
     dependsOn 'jquery'
